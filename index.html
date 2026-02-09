@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CISO Presentation - The New Insider Threat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            scroll-snap-align: start;
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dark-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        .red-gradient {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+        .stat-number {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .stat-number { font-size: 4rem; }
+            .slide { padding: 2rem; }
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #764ba2;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #764ba2; }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Slide 1: Opening Hook -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-400 text-xl mb-8">Before I tell you about Clarity...</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-8">Let me show you something.</h1>
+            <p class="text-2xl text-gray-300">Last night, I decided to attack a company.</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: The Target -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-lg mb-4">THE TARGET</p>
+            <h2 class="text-5xl md:text-6xl font-bold mb-8">Vero Financial</h2>
+            <p class="text-2xl text-gray-600 mb-12">Embedded finance infrastructure for modern platforms</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold gradient-text">$68M</div>
+                    <div class="text-gray-500">Series B</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gradient-text">127</div>
+                    <div class="text-gray-500">Employees</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gradient-text">$4.2B</div>
+                    <div class="text-gray-500">Processed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gradient-text">3</div>
+                    <div class="text-gray-500">Security team</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Live Demo Prompt -->
+    <section class="slide gradient-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-xl mb-8">LIVE DEMO</p>
+            <h2 class="text-5xl md:text-7xl font-bold mb-8">verofintech.com</h2>
+            <p class="text-2xl text-white/80">→ Let's visit their careers page</p>
+        </div>
+    </section>
+
+    <!-- Slide 4: The Attack Begins -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-red-400 text-lg mb-4">⚠️ THE ATTACK</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">30 seconds of reconnaissance</h2>
+            <div class="text-left bg-gray-800 rounded-xl p-8 font-mono text-lg">
+                <p class="text-green-400">$ ai analyze verofintech.com/careers</p>
+                <p class="text-gray-400 mt-4">→ 6 open positions found</p>
+                <p class="text-gray-400">→ DevOps Engineer: HIGH VALUE (infra access)</p>
+                <p class="text-gray-400">→ IT Support: EASY ENTRY (physical access)</p>
+                <p class="text-gray-400">→ Tech stack: AWS, Kubernetes, Terraform, ArgoCD</p>
+                <p class="text-gray-400">→ Team size: 3 DevOps engineers</p>
+                <p class="text-yellow-400 mt-4">→ Target selected: Senior DevOps Engineer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Meet Marcus -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-lg mb-4">THE PERFECT CANDIDATE</p>
+            <h2 class="text-5xl md:text-7xl font-bold mb-4">Marcus Chen</h2>
+            <p class="text-2xl text-gray-600 mb-8">Senior DevOps Engineer · Austin, TX</p>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-sm text-gray-500 mb-2">EXPERIENCE</div>
+                    <div class="text-xl font-semibold">6+ years</div>
+                    <div class="text-gray-600">DevOps & SRE</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-sm text-gray-500 mb-2">EDUCATION</div>
+                    <div class="text-xl font-semibold">UT Austin</div>
+                    <div class="text-gray-600">Computer Science</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-sm text-gray-500 mb-2">PREVIOUS</div>
+                    <div class="text-xl font-semibold">PaymentFlow</div>
+                    <div class="text-gray-600">Senior DevOps</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: The CV -->
+    <section class="slide dark-bg">
+        <div class="max-w-5xl">
+            <p class="text-gray-400 text-center text-lg mb-8">EVERY BULLET POINT ENGINEERED</p>
+            <div class="bg-white text-gray-900 rounded-xl p-8 shadow-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold">Marcus Chen</h3>
+                        <p class="text-gray-600">DevOps Engineer | Cloud Infrastructure | Fintech</p>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <h4 class="font-semibold text-purple-600">PaymentFlow Inc. (2021-2023)</h4>
+                        <ul class="text-gray-600 mt-2 space-y-1">
+                            <li>• Architected <span class="bg-yellow-100 px-1">Kubernetes</span> clusters processing 2M+ daily transactions</li>
+                            <li>• Led <span class="bg-yellow-100 px-1">PCI-DSS</span> compliance initiatives</li>
+                            <li>• Implemented <span class="bg-yellow-100 px-1">ArgoCD</span> for GitOps deployments</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-purple-600">CloudScale Solutions (2018-2020) — <span class="text-red-500">Acquired</span></h4>
+                        <ul class="text-gray-600 mt-2 space-y-1">
+                            <li>• Built CI/CD pipelines using <span class="bg-yellow-100 px-1">GitHub Actions</span></li>
+                            <li>• Managed <span class="bg-yellow-100 px-1">Terraform</span> codebase for 200+ AWS resources</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 mt-6 text-center">↑ Yellow highlights = matched to job posting keywords</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: The Cover Letter -->
+    <section class="slide bg-gray-100 text-gray-900">
+        <div class="max-w-4xl">
+            <p class="text-gray-500 text-center text-lg mb-8">THE PERSONAL TOUCH</p>
+            <div class="bg-white rounded-xl p-8 shadow-xl text-lg leading-relaxed">
+                <p class="mb-6">"I've been following Vero since <span class="bg-yellow-200 px-1">Sarah Martinez's interview on the Fintech Founders podcast</span> last year."</p>
+                <p class="mb-6">"I noticed from your <span class="bg-yellow-200 px-1">engineering blog</span> that you're evaluating <span class="bg-yellow-200 px-1">ArgoCD</span> for deployments..."</p>
+                <p class="mb-6">"After the <span class="bg-yellow-200 px-1">PaymentFlow acquisition</span>, I took time to be selective..."</p>
+                <div class="border-t pt-6 mt-6">
+                    <p class="text-gray-600 italic">"P.S. — I noticed you're hiring for an IT Support role too. If you need a referral, <span class="bg-red-100 px-1 text-red-700">I know a great candidate</span> who's also in Austin."</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 mt-6">Generated in 8 seconds from scraped public data</p>
+        </div>
+    </section>
+
+    <!-- Slide 8: The Scale -->
+    <section class="slide red-gradient">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-xl mb-4">THE TERRIFYING PART</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-12">Same attacker. Same afternoon.</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white/10 backdrop-blur rounded-xl p-8">
+                    <div class="stat-number">50</div>
+                    <div class="text-xl mt-2">Applications sent</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-xl p-8">
+                    <div class="stat-number">50</div>
+                    <div class="text-xl mt-2">Fake identities</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-xl p-8">
+                    <div class="stat-number">50</div>
+                    <div class="text-xl mt-2">Tailored CVs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: The Math -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <div class="space-y-8">
+                <div class="flex items-center justify-center gap-4 text-3xl md:text-5xl">
+                    <span class="font-bold">50</span>
+                    <span class="text-gray-500">applications</span>
+                </div>
+                <div class="text-gray-500 text-2xl">↓ 2% interview rate</div>
+                <div class="flex items-center justify-center gap-4 text-3xl md:text-5xl">
+                    <span class="font-bold">1</span>
+                    <span class="text-gray-500">interview</span>
+                </div>
+                <div class="text-gray-500 text-2xl">↓ 10% offer rate</div>
+                <div class="flex items-center justify-center gap-4">
+                    <span class="text-6xl md:text-8xl font-bold text-red-500">=1</span>
+                    <span class="text-3xl md:text-4xl text-gray-300">planted insider</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Detection Time -->
+    <section class="slide bg-black">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-xl mb-8">AVERAGE TIME TO DETECT INSIDER THREAT</p>
+            <div class="stat-number text-red-500 pulse">197</div>
+            <p class="text-4xl text-gray-300 mt-4">days</p>
+            <p class="text-gray-600 mt-8">— Ponemon Institute</p>
+        </div>
+    </section>
+
+    <!-- Slide 11: The Question -->
+    <section class="slide gradient-bg">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-12">How would YOUR hiring process catch Marcus Chen?</h2>
+            <div class="grid md:grid-cols-2 gap-6 text-left text-xl">
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <span class="text-white/60">Resume screening?</span>
+                    <p class="font-semibold mt-1">Perfect on paper.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <span class="text-white/60">Background check?</span>
+                    <p class="font-semibold mt-1">Identity is fabricated.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <span class="text-white/60">Reference checks?</span>
+                    <p class="font-semibold mt-1">Those are fake too.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <span class="text-white/60">Technical interview?</span>
+                    <p class="font-semibold mt-1">AI-coached answers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: The Reveal -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">This company doesn't exist.</h2>
+            <p class="text-2xl text-gray-400 mb-4">I built it last night.</p>
+            <p class="text-2xl text-gray-400">With AI.</p>
+        </div>
+    </section>
+
+    <!-- Slide 13: Reality Check -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-lg mb-8">THIS ISN'T THEORETICAL</p>
+            <h2 class="text-3xl md:text-5xl font-bold mb-12">Every tool I used exists today.</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-gray-100 px-4 py-2 rounded-full">AI text generation ✓</span>
+                <span class="bg-gray-100 px-4 py-2 rounded-full">Automated scraping ✓</span>
+                <span class="bg-gray-100 px-4 py-2 rounded-full">Fake profile creation ✓</span>
+                <span class="bg-gray-100 px-4 py-2 rounded-full">Deepfake technology ✓</span>
+            </div>
+            <p class="text-2xl text-gray-600 mt-12">The only barrier is <span class="text-red-600 font-bold">intent</span>.</p>
+        </div>
+    </section>
+
+    <!-- Slide 14: North Korea Reference -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-yellow-400 text-lg mb-8">⚠️ ALREADY HAPPENING</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">North Korean IT workers have been caught applying to US tech companies with fake identities.</h2>
+            <p class="text-xl text-gray-400">To earn money. To exfiltrate data. To establish persistent access.</p>
+            <p class="text-xl text-gray-500 mt-8">AI just made it 100x easier.</p>
+        </div>
+    </section>
+
+    <!-- Slide 15: The Pivot -->
+    <section class="slide gradient-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-xl mb-8">THE FRONT DOOR IS OPEN</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">Your hiring process is now a viable attack vector.</h2>
+            <p class="text-2xl text-white/80 mt-12">This is why I built Clarity.</p>
+        </div>
+    </section>
+
+    <!-- Slide 16: Clarity Intro -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <img src="https://getclarity.ai/logo.png" alt="Clarity" class="h-16 mx-auto mb-8" onerror="this.style.display='none'">
+            <h2 class="text-5xl md:text-7xl font-bold gradient-text mb-8">Clarity</h2>
+            <p class="text-2xl text-gray-600">Identity verification for the AI age.</p>
+        </div>
+    </section>
+
+    <!-- Navigation hint -->
+    <div class="fixed bottom-4 right-4 text-gray-500 text-sm">
+        Scroll or use ↑↓ to navigate
+    </div>
+
+    <script>
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const slides = document.querySelectorAll('.slide');
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const currentSlide = Math.round(currentScroll / windowHeight);
+            
+            if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                const nextSlide = Math.min(currentSlide + 1, slides.length - 1);
+                slides[nextSlide].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                const prevSlide = Math.max(currentSlide - 1, 0);
+                slides[prevSlide].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
