@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity - The Remote Employee Identity Problem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            scroll-snap-align: start;
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dark-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        .red-gradient {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+        .green-gradient {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .clarity-gradient {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+        }
+        .stat-number {
+            font-size: 6rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .stat-number { font-size: 4rem; }
+            .slide { padding: 2rem; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- SECTION: Transition from Demo -->
+    
+    <!-- Slide 1: The Demo Recap -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-400 text-lg mb-8">WHAT YOU JUST SAW</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">An AI-powered hiring attack</h2>
+            <p class="text-2xl text-gray-300">Fake company. Fake candidate. Real threat.</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: But this is just one attack -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-lg mb-8">BUT HERE'S THE THING</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">This isn't a new category of attack.</h2>
+            <p class="text-2xl text-gray-600">It's a new level of scale and sophistication for something that's been happening for years.</p>
+        </div>
+    </section>
+
+    <!-- SECTION: What is Hiring Fraud -->
+
+    <!-- Slide 3: What is Hiring Fraud -->
+    <section class="slide red-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-5xl md:text-7xl font-bold mb-8">What is Hiring Fraud?</h2>
+        </div>
+    </section>
+
+    <!-- Slide 4: Definition -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12">Hiring fraud is when someone gains employment using false credentials, fake identities, or misrepresentation.</h2>
+            <div class="grid md:grid-cols-3 gap-6 mt-8">
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🎭</div>
+                    <h3 class="font-semibold text-xl mb-2">Identity Fraud</h3>
+                    <p class="text-gray-400">Fake or stolen identities</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <div class="text-3xl mb-3">📄</div>
+                    <h3 class="font-semibold text-xl mb-2">Credential Fraud</h3>
+                    <p class="text-gray-400">Fake degrees, certifications, experience</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🌍</div>
+                    <h3 class="font-semibold text-xl mb-2">Location Fraud</h3>
+                    <p class="text-gray-400">Working from undisclosed locations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: The Scale -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-lg mb-8">THE SCALE OF THE PROBLEM</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="text-5xl font-bold text-red-500 mb-2">78%</div>
+                    <p class="text-gray-600">of resumes contain misleading information</p>
+                    <p class="text-sm text-gray-400 mt-2">— HireRight Employment Screening Benchmark</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="text-5xl font-bold text-red-500 mb-2">33%</div>
+                    <p class="text-gray-600">of applicants lie about their work history</p>
+                    <p class="text-sm text-gray-400 mt-2">— ResumeLab Survey</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="text-5xl font-bold text-red-500 mb-2">$600B</div>
+                    <p class="text-gray-600">annual cost of employee fraud to US businesses</p>
+                    <p class="text-sm text-gray-400 mt-2">— Association of Certified Fraud Examiners</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="text-5xl font-bold text-red-500 mb-2">1000+</div>
+                    <p class="text-gray-600">North Korean IT workers employed at US companies</p>
+                    <p class="text-sm text-gray-400 mt-2">— FBI/Treasury Advisory 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: It's Getting Worse -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-yellow-400 text-lg mb-8">⚠️ AND IT'S ACCELERATING</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-12">Three forces are making hiring fraud explode:</h2>
+            <div class="space-y-6 text-left max-w-2xl mx-auto">
+                <div class="flex items-start gap-4">
+                    <span class="text-4xl">🌍</span>
+                    <div>
+                        <h3 class="text-2xl font-semibold">Remote Work</h3>
+                        <p class="text-gray-400">You never meet your employees in person anymore</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="text-4xl">🌐</span>
+                    <div>
+                        <h3 class="text-2xl font-semibold">Global Hiring</h3>
+                        <p class="text-gray-400">Employees in 50+ countries with different ID systems</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="text-4xl">🤖</span>
+                    <div>
+                        <h3 class="text-2xl font-semibold">AI & Deepfakes</h3>
+                        <p class="text-gray-400">Fabricating identities is now trivially easy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: The Bigger Picture -->
+
+    <!-- Slide 7: Zoom Out -->
+    <section class="slide gradient-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-lg mb-8">LET'S ZOOM OUT</p>
+            <h2 class="text-4xl md:text-6xl font-bold">The Remote Employee Identity Lifecycle</h2>
+        </div>
+    </section>
+
+    <!-- Slide 8: The Lifecycle -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-5xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Every remote employee goes through this lifecycle:</h2>
+            <div class="flex flex-wrap justify-center gap-4 items-center">
+                <div class="bg-blue-50 border-2 border-blue-200 p-6 rounded-xl text-center w-40">
+                    <div class="text-3xl mb-2">📝</div>
+                    <p class="font-semibold">Apply</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-purple-50 border-2 border-purple-200 p-6 rounded-xl text-center w-40">
+                    <div class="text-3xl mb-2">🔍</div>
+                    <p class="font-semibold">Screen</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-green-50 border-2 border-green-200 p-6 rounded-xl text-center w-40">
+                    <div class="text-3xl mb-2">✅</div>
+                    <p class="font-semibold">Hire</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-yellow-50 border-2 border-yellow-200 p-6 rounded-xl text-center w-40">
+                    <div class="text-3xl mb-2">🔑</div>
+                    <p class="font-semibold">Onboard</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-orange-50 border-2 border-orange-200 p-6 rounded-xl text-center w-40">
+                    <div class="text-3xl mb-2">💻</div>
+                    <p class="font-semibold">Work</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-red-50 border-2 border-red-200 p-6 rounded-xl text-center w-40">
+                    <div class="text-3xl mb-2">👋</div>
+                    <p class="font-semibold">Offboard</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-2xl text-gray-600">At each stage, you're trusting that the person is who they say they are.</p>
+                <p class="text-2xl text-red-600 font-semibold mt-4">But are they?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: The Questions CISOs Can't Answer -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <p class="text-red-400 text-lg mb-8">THE QUESTIONS YOU CAN'T ANSWER TODAY</p>
+            <div class="space-y-6 text-left text-2xl">
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-red-400 mr-3">❓</span>
+                    "Is this contractor in the Philippines actually working from North Korea?"
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-red-400 mr-3">❓</span>
+                    "Did our new DevOps engineer pass a real background check... or a fake one?"
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-red-400 mr-3">❓</span>
+                    "How many of our 500 remote employees have we actually verified?"
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-red-400 mr-3">❓</span>
+                    "Is the person logging into our systems today the same person we hired?"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: The Core Problem -->
+    <section class="slide red-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">CISOs don't know what humans are actually working for their company.</h2>
+            <p class="text-2xl text-white/80 mt-8">Not who they claim to be. Who they actually are.</p>
+        </div>
+    </section>
+
+    <!-- Slide 11: The Trust Gap -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">You have zero trust for your network.<br>But implicit trust for your people.</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-xl border-2 border-green-500 bg-green-50">
+                    <h3 class="text-xl font-semibold text-green-700 mb-4">Network Security ✓</h3>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li>✓ Zero trust architecture</li>
+                        <li>✓ Continuous authentication</li>
+                        <li>✓ Device posture checks</li>
+                        <li>✓ Behavioral analytics</li>
+                    </ul>
+                </div>
+                <div class="p-8 rounded-xl border-2 border-red-500 bg-red-50">
+                    <h3 class="text-xl font-semibold text-red-700 mb-4">People Security ✗</h3>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li>✗ One-time background check</li>
+                        <li>✗ Self-reported identity</li>
+                        <li>✗ No location verification</li>
+                        <li>✗ No continuous validation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Clarity Solution -->
+
+    <!-- Slide 12: Introducing Clarity -->
+    <section class="slide clarity-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-5xl md:text-7xl font-bold mb-8">Clarity</h2>
+            <p class="text-2xl text-white/90">Continuous identity verification for the remote workforce</p>
+        </div>
+    </section>
+
+    <!-- Slide 13: What Clarity Does -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Clarity answers the questions that matter:</h2>
+            <div class="space-y-6 text-left text-xl">
+                <div class="bg-green-500/20 p-6 rounded-xl border border-green-500/30 flex items-center">
+                    <span class="text-green-400 mr-4 text-2xl">✓</span>
+                    <span>Is this person who they claim to be?</span>
+                </div>
+                <div class="bg-green-500/20 p-6 rounded-xl border border-green-500/30 flex items-center">
+                    <span class="text-green-400 mr-4 text-2xl">✓</span>
+                    <span>Are they working from an approved location?</span>
+                </div>
+                <div class="bg-green-500/20 p-6 rounded-xl border border-green-500/30 flex items-center">
+                    <span class="text-green-400 mr-4 text-2xl">✓</span>
+                    <span>Is their identity verified against authoritative sources?</span>
+                </div>
+                <div class="bg-green-500/20 p-6 rounded-xl border border-green-500/30 flex items-center">
+                    <span class="text-green-400 mr-4 text-2xl">✓</span>
+                    <span>Is it still the same person we hired — continuously?</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 14: How It Works -->
+    <section class="slide bg-white text-gray-900">
+        <div class="max-w-5xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Identity verification across the employee lifecycle</h2>
+            <div class="flex flex-wrap justify-center gap-4 items-center">
+                <div class="bg-blue-500 text-white p-6 rounded-xl text-center w-40 shadow-lg">
+                    <div class="text-3xl mb-2">📝</div>
+                    <p class="font-semibold">Apply</p>
+                    <p class="text-xs mt-2 text-blue-100">Document verification</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-purple-500 text-white p-6 rounded-xl text-center w-40 shadow-lg">
+                    <div class="text-3xl mb-2">🔍</div>
+                    <p class="font-semibold">Screen</p>
+                    <p class="text-xs mt-2 text-purple-100">Identity verification</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-green-500 text-white p-6 rounded-xl text-center w-40 shadow-lg">
+                    <div class="text-3xl mb-2">✅</div>
+                    <p class="font-semibold">Hire</p>
+                    <p class="text-xs mt-2 text-green-100">Background checks</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-yellow-500 text-white p-6 rounded-xl text-center w-40 shadow-lg">
+                    <div class="text-3xl mb-2">🔑</div>
+                    <p class="font-semibold">Onboard</p>
+                    <p class="text-xs mt-2 text-yellow-100">Biometric binding</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-orange-500 text-white p-6 rounded-xl text-center w-40 shadow-lg">
+                    <div class="text-3xl mb-2">💻</div>
+                    <p class="font-semibold">Work</p>
+                    <p class="text-xs mt-2 text-orange-100">Continuous verification</p>
+                </div>
+                <span class="text-3xl text-gray-300">→</span>
+                <div class="bg-red-500 text-white p-6 rounded-xl text-center w-40 shadow-lg">
+                    <div class="text-3xl mb-2">👋</div>
+                    <p class="font-semibold">Offboard</p>
+                    <p class="text-xs mt-2 text-red-100">Access revocation</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-xl text-gray-600">Not a point-in-time check. <span class="font-bold text-blue-600">Continuous assurance.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 15: Key Features -->
+    <section class="slide dark-bg">
+        <div class="max-w-5xl">
+            <h2 class="text-3xl font-bold text-center mb-12">What makes Clarity different</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                    <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-semibold mb-2">Global Coverage</h3>
+                    <p class="text-gray-400">Identity verification in 200+ countries. We know the local ID systems, so you don't have to.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-2">Continuous Verification</h3>
+                    <p class="text-gray-400">Not just at hire. We verify identity throughout the employment lifecycle.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                    <div class="text-4xl mb-4">📍</div>
+                    <h3 class="text-xl font-semibold mb-2">Location Intelligence</h3>
+                    <p class="text-gray-400">Know where your employees are actually working from — not where they claim to be.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Detection</h3>
+                    <p class="text-gray-400">Detect deepfakes, synthetic identities, and AI-generated credentials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 16: The ROI -->
+    <section class="slide green-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Stop one bad hire. Pay for Clarity for a decade.</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/20 backdrop-blur p-8 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">$150K</div>
+                    <p class="text-white/80">Average cost of a bad hire</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur p-8 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">$4.5M</div>
+                    <p class="text-white/80">Average insider threat cost</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur p-8 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">197 days</div>
+                    <p class="text-white/80">To detect an insider threat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 17: Call to Action -->
+    <section class="slide clarity-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">Know who's actually working for you.</h2>
+            <p class="text-2xl text-white/80 mb-12">Clarity brings zero trust to your workforce.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-xl hover:bg-gray-100 transition">
+                    Request a Demo
+                </a>
+                <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-xl hover:bg-white/10 transition">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 18: Contact -->
+    <section class="slide dark-bg">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl font-bold mb-8">Let's talk.</h2>
+            <p class="text-2xl text-gray-400 mb-8">Michael Matias</p>
+            <p class="text-xl text-gray-500">CEO & Founder, Clarity</p>
+            <p class="text-xl text-blue-400 mt-4">michael@getclarity.ai</p>
+        </div>
+    </section>
+
+    <!-- Navigation hint -->
+    <div class="fixed bottom-4 right-4 text-gray-500 text-sm">
+        Scroll or use ↑↓ to navigate
+    </div>
+
+    <script>
+        document.addEventListener('keydown', (e) => {
+            const slides = document.querySelectorAll('.slide');
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const currentSlide = Math.round(currentScroll / windowHeight);
+            
+            if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                const nextSlide = Math.min(currentSlide + 1, slides.length - 1);
+                slides[nextSlide].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                const prevSlide = Math.max(currentSlide - 1, 0);
+                slides[prevSlide].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
