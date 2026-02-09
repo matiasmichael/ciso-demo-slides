@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity - Never Hire a Bad-Actor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'clarity-navy': '#0a1628',
+                        'clarity-dark': '#060d16',
+                        'clarity-teal': '#00d4aa',
+                        'clarity-teal-dark': '#00b892',
+                        'clarity-blue': '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            scroll-snap-align: start;
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        .clarity-gradient { background: linear-gradient(135deg, #0a1628 0%, #162544 100%); }
+        .teal-gradient { background: linear-gradient(135deg, #00d4aa 0%, #00b892 100%); }
+        .red-gradient { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); }
+        .stat-number { font-size: 6rem; font-weight: 800; line-height: 1; }
+        @media (max-width: 768px) {
+            .stat-number { font-size: 4rem; }
+            .slide { padding: 2rem; }
+        }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4aa, #00b892);
+            z-index: 100;
+            transition: width 0.3s ease;
+        }
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            z-index: 100;
+        }
+        .clarity-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .clarity-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #00d4aa 0%, #00b892 100%);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-clarity-navy text-white">
+    <div class="progress-bar" id="progress"></div>
+    <div class="slide-counter" id="counter">1 / 28</div>
+
+    <!-- Fixed Clarity logo -->
+    <div class="fixed top-6 left-6 z-50 clarity-logo">
+        <div class="clarity-logo-icon"></div>
+        <span class="text-white font-semibold text-lg">Clarity</span>
+    </div>
+
+    <!-- ==================== PART 1: THE THREAT DEMO ==================== -->
+
+    <!-- Slide 1: Title -->
+    <section class="slide clarity-gradient">
+        <div class="max-w-4xl text-center">
+            <div class="mb-8">
+                <span class="text-clarity-teal text-lg font-medium">CISO SECURITY BRIEFING</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Never Hire a<br><span class="text-clarity-teal">Bad-Actor</span></h1>
+            <p class="text-xl text-gray-400 mt-8">Michael Matias · CEO, Clarity</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: Hook -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-lg mb-8">Before we begin...</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">Let me show you something.</h2>
+            <p class="text-2xl text-gray-400">Last night, I attacked a company.</p>
+        </div>
+    </section>
+
+    <!-- Slide 3: Target -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-sm font-medium tracking-wider mb-4">THE TARGET</p>
+            <h2 class="text-5xl md:text-6xl font-bold mb-6">Vero Financial</h2>
+            <p class="text-xl text-gray-600 mb-12">Series B fintech · Embedded finance infrastructure</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-4xl font-bold text-clarity-teal">$68M</div>
+                    <div class="text-gray-500 text-sm">Raised</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-clarity-teal">127</div>
+                    <div class="text-gray-500 text-sm">Employees</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-clarity-teal">$4.2B</div>
+                    <div class="text-gray-500 text-sm">Processed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-red-500">3</div>
+                    <div class="text-gray-500 text-sm">Security team</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Live Demo -->
+    <section class="slide teal-gradient">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-sm font-medium tracking-wider mb-8">LIVE DEMONSTRATION</p>
+            <h2 class="text-5xl md:text-7xl font-bold mb-8">verofintech.com</h2>
+            <p class="text-2xl text-white/80">→ Let's visit their careers page</p>
+        </div>
+    </section>
+
+    <!-- Slide 5: Recon -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <p class="text-red-400 text-sm font-medium tracking-wider mb-4">⚠️ ATTACK IN PROGRESS</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">30 seconds of AI reconnaissance</h2>
+            <div class="text-left bg-clarity-navy rounded-xl p-8 font-mono text-base border border-gray-800">
+                <p class="text-clarity-teal">$ ai analyze target/careers</p>
+                <p class="text-gray-500 mt-4">Scanning job postings...</p>
+                <p class="text-gray-400 mt-2">→ 6 open positions identified</p>
+                <p class="text-gray-400">→ DevOps Engineer: <span class="text-red-400">HIGH VALUE</span> (infra access)</p>
+                <p class="text-gray-400">→ Tech stack: AWS, Kubernetes, Terraform, ArgoCD</p>
+                <p class="text-yellow-400 mt-4">→ Generating tailored candidate profile...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Marcus Chen -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-sm font-medium tracking-wider mb-4">AI-GENERATED CANDIDATE</p>
+            <h2 class="text-5xl md:text-6xl font-bold mb-4">Marcus Chen</h2>
+            <p class="text-xl text-gray-600 mb-8">Senior DevOps Engineer · Austin, TX</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="text-sm text-gray-500 mb-2">EXPERIENCE</div>
+                    <div class="text-2xl font-bold text-clarity-navy">6+ years</div>
+                    <div class="text-gray-600">DevOps & SRE</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="text-sm text-gray-500 mb-2">EDUCATION</div>
+                    <div class="text-2xl font-bold text-clarity-navy">UT Austin</div>
+                    <div class="text-gray-600">Computer Science</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="text-sm text-gray-500 mb-2">PREVIOUS</div>
+                    <div class="text-2xl font-bold text-clarity-navy">PaymentFlow</div>
+                    <div class="text-gray-600">Acquired 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: CV Detail -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-5xl">
+            <p class="text-gray-500 text-center text-sm font-medium tracking-wider mb-8">PRECISION-TARGETED RESUME</p>
+            <div class="bg-white text-clarity-navy rounded-xl p-8 shadow-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold">Marcus Chen</h3>
+                        <p class="text-gray-600">DevOps Engineer | Cloud Infrastructure | Fintech</p>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <h4 class="font-semibold text-clarity-teal">PaymentFlow Inc. · 2021-2023</h4>
+                        <ul class="text-gray-600 mt-2 space-y-1">
+                            <li>• Architected <span class="bg-yellow-100 px-1 rounded">Kubernetes</span> clusters processing 2M+ daily transactions</li>
+                            <li>• Led <span class="bg-yellow-100 px-1 rounded">PCI-DSS</span> compliance — <em>matches job requirement</em></li>
+                            <li>• Implemented <span class="bg-yellow-100 px-1 rounded">ArgoCD</span> — <em>their exact tech stack</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-clarity-teal">CloudScale Solutions · 2018-2020 <span class="text-red-500 text-xs ml-2">ACQUIRED — no HR to verify</span></h4>
+                        <ul class="text-gray-600 mt-2 space-y-1">
+                            <li>• Built CI/CD using <span class="bg-yellow-100 px-1 rounded">GitHub Actions</span> + <span class="bg-yellow-100 px-1 rounded">Terraform</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Cover Letter -->
+    <section class="slide bg-gray-100 text-clarity-navy">
+        <div class="max-w-4xl">
+            <p class="text-gray-500 text-center text-sm font-medium tracking-wider mb-8">HYPER-PERSONALIZED OUTREACH</p>
+            <div class="bg-white rounded-xl p-8 shadow-lg text-lg leading-relaxed border border-gray-200">
+                <p class="mb-6">"I've been following Vero since <span class="bg-clarity-teal/20 px-1 rounded text-clarity-teal font-medium">Sarah Martinez's interview on the Fintech Founders podcast</span>..."</p>
+                <p class="mb-6">"I noticed from your <span class="bg-clarity-teal/20 px-1 rounded text-clarity-teal font-medium">engineering blog</span> that you're evaluating ArgoCD..."</p>
+                <div class="border-t border-gray-200 pt-6 mt-6">
+                    <p class="text-gray-600 italic">"P.S. — I noticed you're hiring for an IT Support role too. <span class="bg-red-100 px-1 rounded text-red-600 font-medium">I know a great candidate</span> who's also in Austin."</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 mt-6 text-sm">Generated in 8 seconds from publicly available data</p>
+        </div>
+    </section>
+
+    <!-- Slide 9: Scale -->
+    <section class="slide red-gradient">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-sm font-medium tracking-wider mb-6">THE SCALE OF THE THREAT</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Same attacker. Same afternoon.</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur p-8 rounded-xl">
+                    <div class="stat-number">50</div>
+                    <div class="text-lg mt-2">Applications</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-8 rounded-xl">
+                    <div class="stat-number">50</div>
+                    <div class="text-lg mt-2">Fake identities</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-8 rounded-xl">
+                    <div class="stat-number">50</div>
+                    <div class="text-lg mt-2">Tailored CVs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Math -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <div class="space-y-6">
+                <div class="text-3xl"><span class="font-bold text-white">50</span> <span class="text-gray-500">applications</span></div>
+                <div class="text-gray-600">↓ 2% interview rate</div>
+                <div class="text-3xl"><span class="font-bold text-white">1</span> <span class="text-gray-500">interview</span></div>
+                <div class="text-gray-600">↓ reasonable offer rate</div>
+                <div class="flex items-center justify-center gap-4 mt-8">
+                    <span class="text-7xl md:text-8xl font-bold text-red-500">=1</span>
+                    <span class="text-2xl text-gray-300">planted insider</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: 197 days -->
+    <section class="slide bg-black">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-600 text-sm font-medium tracking-wider mb-8">AVERAGE TIME TO DETECT INSIDER THREAT</p>
+            <div class="text-8xl md:text-9xl font-bold text-red-500 pulse">197</div>
+            <p class="text-3xl text-gray-400 mt-4">days</p>
+            <p class="text-gray-700 mt-8 text-sm">— Ponemon Institute</p>
+        </div>
+    </section>
+
+    <!-- Slide 12: Question -->
+    <section class="slide clarity-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12">How would your hiring process<br>catch <span class="text-clarity-teal">Marcus Chen</span>?</h2>
+            <div class="grid md:grid-cols-2 gap-4 text-left text-lg">
+                <div class="bg-white/5 border border-white/10 p-5 rounded-xl">
+                    <span class="text-gray-500">Resume screening?</span>
+                    <p class="font-semibold mt-1">Perfect on paper.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-5 rounded-xl">
+                    <span class="text-gray-500">Background check?</span>
+                    <p class="font-semibold mt-1">Identity is fabricated.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-5 rounded-xl">
+                    <span class="text-gray-500">Reference checks?</span>
+                    <p class="font-semibold mt-1">Those are fake too.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-5 rounded-xl">
+                    <span class="text-gray-500">Technical interview?</span>
+                    <p class="font-semibold mt-1">AI-coached answers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 13: Reveal -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">This company doesn't exist.</h2>
+            <p class="text-2xl text-gray-500">I built it last night. With AI.</p>
+        </div>
+    </section>
+
+    <!-- ==================== PART 2: THE PROBLEM ==================== -->
+
+    <!-- Slide 14: Transition -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-sm font-medium tracking-wider mb-6">THE BIGGER PICTURE</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">This isn't a new attack.</h2>
+            <p class="text-2xl text-gray-600">AI just made it 100x easier and infinitely scalable.</p>
+        </div>
+    </section>
+
+    <!-- Slide 15: Hiring Fraud -->
+    <section class="slide red-gradient">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-sm font-medium tracking-wider mb-6">THE IDENTITY PROBLEM</p>
+            <h2 class="text-5xl md:text-7xl font-bold">Hiring Fraud</h2>
+        </div>
+    </section>
+
+    <!-- Slide 16: Stats -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-4xl">
+            <p class="text-gray-500 text-center text-sm font-medium tracking-wider mb-8">THE SCALE</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="text-5xl font-bold text-red-500 mb-2">78%</div>
+                    <p class="text-gray-700">of resumes contain misleading information</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="text-5xl font-bold text-red-500 mb-2">1,000+</div>
+                    <p class="text-gray-700">North Korean IT workers employed at US companies</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="text-5xl font-bold text-red-500 mb-2">220%</div>
+                    <p class="text-gray-700">increase in DPRK infiltrations in 12 months</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="text-5xl font-bold text-red-500 mb-2">$600B</div>
+                    <p class="text-gray-700">annual cost of employee fraud to US businesses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 17: Three Forces -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-sm font-medium tracking-wider mb-6">WHY IT'S ACCELERATING</p>
+            <h2 class="text-3xl font-bold mb-12">Three forces making hiring fraud explode:</h2>
+            <div class="space-y-6 text-left max-w-2xl mx-auto">
+                <div class="flex items-start gap-4 bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-3xl">🌍</span>
+                    <div>
+                        <h3 class="text-xl font-semibold text-clarity-teal">Remote Work</h3>
+                        <p class="text-gray-400">You never meet your employees in person</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-3xl">🌐</span>
+                    <div>
+                        <h3 class="text-xl font-semibold text-clarity-teal">Global Hiring</h3>
+                        <p class="text-gray-400">Employees in 50+ countries with different ID systems</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white/5 p-6 rounded-xl border border-white/10">
+                    <span class="text-3xl">🤖</span>
+                    <div>
+                        <h3 class="text-xl font-semibold text-clarity-teal">AI & Deepfakes</h3>
+                        <p class="text-gray-400">Fabricating identities is now trivially easy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 18: Lifecycle -->
+    <section class="slide teal-gradient">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-sm font-medium tracking-wider mb-6">THE REMOTE EMPLOYEE</p>
+            <h2 class="text-4xl md:text-6xl font-bold">Identity Lifecycle</h2>
+        </div>
+    </section>
+
+    <!-- Slide 19: Lifecycle Visual -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-5xl">
+            <div class="flex flex-wrap justify-center gap-2 items-center text-xs mb-10">
+                <div class="bg-clarity-navy text-white p-4 rounded-lg text-center w-24">
+                    <div class="text-lg mb-1">📝</div>
+                    <p class="font-semibold">Apply</p>
+                </div>
+                <span class="text-xl text-gray-300">→</span>
+                <div class="bg-clarity-navy text-white p-4 rounded-lg text-center w-24">
+                    <div class="text-lg mb-1">🔍</div>
+                    <p class="font-semibold">Screen</p>
+                </div>
+                <span class="text-xl text-gray-300">→</span>
+                <div class="bg-clarity-navy text-white p-4 rounded-lg text-center w-24">
+                    <div class="text-lg mb-1">✅</div>
+                    <p class="font-semibold">Hire</p>
+                </div>
+                <span class="text-xl text-gray-300">→</span>
+                <div class="bg-clarity-navy text-white p-4 rounded-lg text-center w-24">
+                    <div class="text-lg mb-1">🔑</div>
+                    <p class="font-semibold">Onboard</p>
+                </div>
+                <span class="text-xl text-gray-300">→</span>
+                <div class="bg-clarity-navy text-white p-4 rounded-lg text-center w-24">
+                    <div class="text-lg mb-1">💻</div>
+                    <p class="font-semibold">Work</p>
+                </div>
+                <span class="text-xl text-gray-300">→</span>
+                <div class="bg-clarity-navy text-white p-4 rounded-lg text-center w-24">
+                    <div class="text-lg mb-1">👋</div>
+                    <p class="font-semibold">Offboard</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-xl text-gray-600 mb-4">At every stage, you're trusting they are who they claim to be.</p>
+                <p class="text-2xl text-red-600 font-bold">But are they?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 20: Core Problem -->
+    <section class="slide red-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight">CISOs don't know what humans are actually working for their company.</h2>
+        </div>
+    </section>
+
+    <!-- Slide 21: Trust Gap -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-4xl text-center">
+            <p class="text-gray-500 text-sm font-medium tracking-wider mb-6">THE TRUST GAP</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-10">Zero trust for your network.<br>Implicit trust for your people.</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-xl border-2 border-clarity-teal bg-clarity-teal/5">
+                    <h3 class="text-lg font-semibold text-clarity-teal mb-4">Network Security ✓</h3>
+                    <ul class="text-left text-gray-600 space-y-2 text-sm">
+                        <li>✓ Zero trust architecture</li>
+                        <li>✓ Continuous authentication</li>
+                        <li>✓ Device posture checks</li>
+                        <li>✓ Behavioral analytics</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-xl border-2 border-red-500 bg-red-50">
+                    <h3 class="text-lg font-semibold text-red-600 mb-4">People Security ✗</h3>
+                    <ul class="text-left text-gray-600 space-y-2 text-sm">
+                        <li>✗ One-time background check</li>
+                        <li>✗ Self-reported identity</li>
+                        <li>✗ No location verification</li>
+                        <li>✗ No continuous validation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PART 3: CLARITY SOLUTION ==================== -->
+
+    <!-- Slide 22: Clarity Intro -->
+    <section class="slide clarity-gradient">
+        <div class="max-w-4xl text-center">
+            <div class="mb-8">
+                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-clarity-teal to-clarity-teal-dark rounded-2xl mb-6"></div>
+            </div>
+            <h2 class="text-5xl md:text-7xl font-bold mb-6">Clarity</h2>
+            <p class="text-2xl text-gray-300">Secure your hiring process from AI</p>
+        </div>
+    </section>
+
+    <!-- Slide 23: One Platform -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <p class="text-clarity-teal text-sm font-medium tracking-wider mb-6">A UNIFIED SOLUTION</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">One platform to ensure you<br>never hire a bad-actor</h2>
+            <div class="grid md:grid-cols-2 gap-4 text-left">
+                <div class="bg-clarity-teal/10 border border-clarity-teal/30 p-5 rounded-xl flex items-center">
+                    <span class="text-clarity-teal mr-4 text-xl">✓</span>
+                    <span>Is this person who they claim to be?</span>
+                </div>
+                <div class="bg-clarity-teal/10 border border-clarity-teal/30 p-5 rounded-xl flex items-center">
+                    <span class="text-clarity-teal mr-4 text-xl">✓</span>
+                    <span>Where are they actually located?</span>
+                </div>
+                <div class="bg-clarity-teal/10 border border-clarity-teal/30 p-5 rounded-xl flex items-center">
+                    <span class="text-clarity-teal mr-4 text-xl">✓</span>
+                    <span>Are their credentials real?</span>
+                </div>
+                <div class="bg-clarity-teal/10 border border-clarity-teal/30 p-5 rounded-xl flex items-center">
+                    <span class="text-clarity-teal mr-4 text-xl">✓</span>
+                    <span>Is it the same person — continuously?</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 24: Capabilities -->
+    <section class="slide bg-white text-clarity-navy">
+        <div class="max-w-5xl">
+            <p class="text-gray-500 text-center text-sm font-medium tracking-wider mb-8">END-TO-END PROTECTION</p>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="text-3xl mb-3">🔍</div>
+                    <h3 class="font-semibold mb-2">Background Verification</h3>
+                    <p class="text-gray-600 text-sm">Global criminal, employment, education checks</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="text-3xl mb-3">🤖</div>
+                    <h3 class="font-semibold mb-2">AI Deepfake Detection</h3>
+                    <p class="text-gray-600 text-sm">Catch synthetic media in video interviews</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="text-3xl mb-3">✅</div>
+                    <h3 class="font-semibold mb-2">Identity Confirmation</h3>
+                    <p class="text-gray-600 text-sm">Government ID + biometric verification</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="text-3xl mb-3">🎓</div>
+                    <h3 class="font-semibold mb-2">AI Cheating Detection</h3>
+                    <p class="text-gray-600 text-sm">Ensure authentic interview performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 25: Lifecycle Solution -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-5xl">
+            <p class="text-gray-500 text-center text-sm font-medium tracking-wider mb-8">CONTINUOUS PROTECTION</p>
+            <div class="flex flex-wrap justify-center gap-2 items-center text-xs">
+                <div class="bg-clarity-teal text-white p-4 rounded-lg text-center w-28 shadow-lg">
+                    <p class="font-semibold">Apply</p>
+                    <p class="text-clarity-teal-dark text-xs mt-1">Doc verification</p>
+                </div>
+                <span class="text-xl text-gray-600">→</span>
+                <div class="bg-clarity-teal text-white p-4 rounded-lg text-center w-28 shadow-lg">
+                    <p class="font-semibold">Screen</p>
+                    <p class="text-clarity-teal-dark text-xs mt-1">Deepfake detect</p>
+                </div>
+                <span class="text-xl text-gray-600">→</span>
+                <div class="bg-clarity-teal text-white p-4 rounded-lg text-center w-28 shadow-lg">
+                    <p class="font-semibold">Hire</p>
+                    <p class="text-clarity-teal-dark text-xs mt-1">Background check</p>
+                </div>
+                <span class="text-xl text-gray-600">→</span>
+                <div class="bg-clarity-teal text-white p-4 rounded-lg text-center w-28 shadow-lg">
+                    <p class="font-semibold">Onboard</p>
+                    <p class="text-clarity-teal-dark text-xs mt-1">Biometric bind</p>
+                </div>
+                <span class="text-xl text-gray-600">→</span>
+                <div class="bg-clarity-teal text-white p-4 rounded-lg text-center w-28 shadow-lg">
+                    <p class="font-semibold">Work</p>
+                    <p class="text-clarity-teal-dark text-xs mt-1">Continuous verify</p>
+                </div>
+            </div>
+            <p class="mt-10 text-center text-lg text-gray-400">Not point-in-time. <span class="text-clarity-teal font-semibold">Continuous assurance.</span></p>
+        </div>
+    </section>
+
+    <!-- Slide 26: ROI -->
+    <section class="slide teal-gradient">
+        <div class="max-w-4xl text-center">
+            <p class="text-white/70 text-sm font-medium tracking-wider mb-6">THE ROI</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-12">Stop one bad hire.<br>Pay for Clarity for a decade.</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/20 backdrop-blur p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">$150K</div>
+                    <p class="text-white/80 text-sm">Avg cost of bad hire</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">$4.5M</div>
+                    <p class="text-white/80 text-sm">Avg insider threat cost</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">197d</div>
+                    <p class="text-white/80 text-sm">To detect an insider</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 27: CTA -->
+    <section class="slide clarity-gradient">
+        <div class="max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Know who's actually<br>working for you.</h2>
+            <p class="text-2xl text-gray-400 mb-10">Zero trust for your workforce.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://getclarity.ai" class="bg-clarity-teal text-clarity-navy px-8 py-4 rounded-lg font-semibold text-lg hover:bg-clarity-teal-dark transition">
+                    Request a Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 28: Thank You -->
+    <section class="slide bg-clarity-dark">
+        <div class="max-w-4xl text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-clarity-teal to-clarity-teal-dark rounded-xl mb-6"></div>
+            <h2 class="text-4xl font-bold mb-6">Thank you.</h2>
+            <p class="text-2xl text-gray-400 mb-2">Michael Matias</p>
+            <p class="text-lg text-gray-500 mb-6">CEO & Founder, Clarity</p>
+            <p class="text-clarity-teal">michael@getclarity.ai</p>
+            <p class="text-gray-500 mt-4">getclarity.ai</p>
+        </div>
+    </section>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+        const totalSlides = slides.length;
+
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const percent = (scrollTop / docHeight) * 100;
+            progress.style.width = percent + '%';
+            const currentSlide = Math.round(scrollTop / window.innerHeight) + 1;
+            counter.textContent = currentSlide + ' / ' + totalSlides;
+        }
+
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
+
+        document.addEventListener('keydown', (e) => {
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const currentSlide = Math.round(currentScroll / windowHeight);
+            
+            if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextSlide = Math.min(currentSlide + 1, slides.length - 1);
+                slides[nextSlide].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevSlide = Math.max(currentSlide - 1, 0);
+                slides[prevSlide].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
